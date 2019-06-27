@@ -105,7 +105,7 @@ function moveShip(input, shipStart, map) {
 }
 
 // handle input
-function prosessInput(input) {
+function processInput(input) {
     const map = new Map(testInput.map);
     const sequencesArr = Object.values(input.shipSequences)
     sequencesArr.forEach((el) => {
@@ -115,4 +115,4 @@ function prosessInput(input) {
     })
 }
 
-prosessInput(testInput);
+processInput(testInput);
