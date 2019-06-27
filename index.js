@@ -17,16 +17,20 @@ const testInput = {
 }
 
 //map size
-function Map(mapCoordinates) {
-    this.width = mapCoordinates[0];
-    this.height = mapCoordinates[1];
+class Map {
+    constructor(mapCoordinates) {
+        this.width = mapCoordinates[0];
+        this.height = mapCoordinates[1];
+    }
 }
 
 // initial start location
-function ShipStart(coordinates) {
-    this.x = coordinates[0]
-    this.y = coordinates[1]
-    this.o = coordinates[2]
+class ShipStart {
+    constructor(coordinates) {
+        this.x = coordinates[0];
+        this.y = coordinates[1];
+        this.o = coordinates[2];
+    }
 }
 
 function moveShip(input, shipStart, map) {
