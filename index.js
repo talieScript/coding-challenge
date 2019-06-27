@@ -107,7 +107,7 @@ function moveShip(input, shipStart, map) {
 // handle input
 function processInput(input) {
     const map = new Map(testInput.map);
-    const sequencesArr = input.shipSequences;
+    const sequencesArr = Object.values(input.shipSequences)
     sequencesArr.forEach((el) => {
         let start = new ShipStart(el.coordinates);
         let commands = el.input; 
