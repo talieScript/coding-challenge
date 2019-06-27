@@ -1,19 +1,19 @@
 const testInput = {
     map: [5, 3],
-    shipSequences: {
-        first: {
+    shipSequences: [
+        {
             coordinates: [1, 1, "e"],
             input: "rfrfrfrf"
         },
-        second: {
+        {
             coordinates: [3, 2, "n"],
             input: "frrfllffrrfll"
         },
-        third: {
+        {
             coordinates: [0, 3, "w"],
             input: "LLFFFLFLFLf" // i put an f at the end because i think there might have been a mistake 
         }
-    }
+    ]
 }
 
 //map size
@@ -107,7 +107,7 @@ function moveShip(input, shipStart, map) {
 // handle input
 function processInput(input) {
     const map = new Map(testInput.map);
-    const sequencesArr = Object.values(input.shipSequences)
+    const sequencesArr = input.shipSequences;
     sequencesArr.forEach((el) => {
         let start = new ShipStart(el.coordinates);
         let commands = el.input; 
