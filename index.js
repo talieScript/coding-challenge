@@ -16,8 +16,9 @@ const testInput = {
     }
 }
 
-function makeMap(mapCoordinates) {
-
+function Map(mapCoordinates) {
+    this.width = mapCoordinates[0];
+    this.height = mapCoordinates[1];
 }
 
 function setShipStart(coordinates) {
@@ -25,6 +26,7 @@ function setShipStart(coordinates) {
 }
 
 function moveShip(input, shipStart, map) {
-    
+
 }
+
 
