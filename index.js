@@ -11,7 +11,7 @@ const testInput = {
         },
         third: {
             coordinates: [0, 3, "w"],
-            input: "llffflflfl"
+            input: "LLFFFLFLFLf" // i put an f at the end because i think there might have been a mistake 
         }
     }
 }
@@ -31,7 +31,7 @@ function ShipStart(coordinates) {
 
 function moveShip(input, shipStart, map) {
     // split sting into arr of instructions
-    let iArr = input.split("");
+    let iArr = input.toLowerCase().split("");
     // get initial ship position
     let position = shipStart;
     // forards command function
@@ -97,15 +97,22 @@ function moveShip(input, shipStart, map) {
     });
 
     // check if LOST and log position
-    if(position.x > map.width || position.y > map.height) {
-        console.log(position.x+" "+position.y+" "+position.o+" LOST")
+    if(position.x >= map.width || position.y >= map.height) {
+        console.log(position.x+" "+position.y+" "+position.o.toUpperCase()+" LOST")
     } else {
-        console.log(position.x+" "+position.y+" "+position.o)
+        console.log(position.x+" "+position.y+" "+position.o.toUpperCase())
     }
 }
 
-const map = new Map(testInput.map);
-const start = new ShipStart(testInput.shipSequences.first.coordinates);
-const input = testInput.shipSequences.first.input;
+// handle input
+function prosessInput(input) {
+    const map = new Map(testInput.map);
+    const sequencesArr = Object.values(input.shipSequences)
+    sequencesArr.forEach((el) => {
+        let start = new ShipStart(el.coordinates);
+        let commands = el.input; 
+        moveShip(commands, start, map);
+    })
+}
 
-moveShip(input, start, map);
+prosessInput(testInput);
