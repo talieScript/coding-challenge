@@ -21,8 +21,10 @@ function Map(mapCoordinates) {
     this.height = mapCoordinates[1];
 }
 
-function setShipStart(coordinates) {
-
+function ShipStart(coordinates) {
+    this.x = coordinates[0]
+    this.y = coordinates[1]
+    this.o = coordinates[2]
 }
 
 function moveShip(input, shipStart, map) {
